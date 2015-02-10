@@ -1,0 +1,50 @@
+﻿@model RobsDerbyCars.Models.Heat
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Heat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstRacer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstRacer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondRacer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondRacer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstRacerIsWinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstRacerIsWinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsComplete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsComplete)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HeatID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

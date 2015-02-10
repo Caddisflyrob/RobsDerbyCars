@@ -1,0 +1,28 @@
+﻿@model IEnumerable<RobsDerbyCars.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-md-8">
+        <h2>Rob's Car Gallery</h2>
+        <h6> Click on an image to see the details.</h6>
+    </div>
+</div>
+@{foreach (var item in Model)
+{
+    <div class="gallery" style="float:left; margin:10px; text-align:center">
+        @Html.DisplayFor(modelItem => item.CarName)
+        <br />
+        <a href="@Url.Action("Detail", "Gallery",new { id = item.CarID })">
+            <img src="@Url.Content(item.ThumbnailURL)" alt="Opps!">
+        </a> 
+        <br /><br/>
+        @*Html.ActionLink("CarDetails", "Detail", new { id = item.CarID })*@ 
+    </div>
+}
+<div style="clear:left"></div>
+}
+
+
+

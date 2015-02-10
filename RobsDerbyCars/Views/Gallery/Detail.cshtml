@@ -1,0 +1,16 @@
+﻿@model RobsDerbyCars.Models.Car                                                
+
+<h1 style="text-align:center"> @Html.DisplayFor(model => model.CarName) </h1>  @*displays Car Name*@
+<dl class="dl-horizontal">
+    <img src="@Url.Content(Model.PictureURL)" alt="Opps!">                     @*displays picture*@
+    <div>
+        <h3>Owner/Builder: @Html.DisplayFor(model => model.Owner)</h3>         @*displays Owner*@
+    </div>                          
+    <h3>@Html.DisplayFor(model => model.Description)</h3>
+    <div class="col-md-4">
+        <p class="btn btn-default"> @Html.ActionLink("Return to Gallery", "Index", "Gallery")</p>    @*Button to Gallery*@
+    </div>
+</dl>
+
+
+

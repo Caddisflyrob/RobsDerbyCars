@@ -1,0 +1,56 @@
+﻿@model RobsDerbyCars.Models.Heat
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Heat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstRacer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstRacer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecondRacer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecondRacer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstRacerIsWinner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstRacerIsWinner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsComplete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsComplete)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

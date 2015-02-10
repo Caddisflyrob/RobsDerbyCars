@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Manage Rob's Derby Car's Database</h1>
+<h3>Select the section you would like to manage:</h3>
+<p class="btn btn-default"> @Html.ActionLink("Car Gallery", "Index", "Car")</p>
+<p class="btn btn-default"> @Html.ActionLink("Comments", "Index", "Comment")</p>
+<p class="btn btn-default"> @Html.ActionLink("Racers", "Index", "Racer")</p>
+<p class="btn btn-default"> @Html.ActionLink("Heats", "Index", "Heat")</p>
