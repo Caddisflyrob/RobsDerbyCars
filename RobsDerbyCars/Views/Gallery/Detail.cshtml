@@ -11,6 +11,16 @@
         <p class="btn btn-default"> @Html.ActionLink("Return to Gallery", "Index", "Gallery")</p>    @*Button to Gallery*@
     </div>
 </dl>
+<br/>
+<h2>Comments:</h2>
+<br/>
+@foreach (var comment in Model.comments)
+{
+    <h4>@Html.DisplayFor(model => comment.Name)-- </h4>
+    <h5>@Html.DisplayFor(model => comment.CommentText)</h5>
+    <br />
+}
+
 
 
 

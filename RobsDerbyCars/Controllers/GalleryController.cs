@@ -30,9 +30,15 @@ namespace RobsDerbyCars.Controllers
             {
                 return HttpNotFound();
             }
+
+            var AllComments = db.Comments.ToList();
+
+            foreach (var thisCarsComment in AllComments)
+                if (thisCarsComment.CarIdNum == car.CarID)
+                    car.comments.Add(thisCarsComment);
+           
             return View(car);
-    
-        }
+            }
 
     }
 }
