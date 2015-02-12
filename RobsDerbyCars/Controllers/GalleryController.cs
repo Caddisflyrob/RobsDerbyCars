@@ -1,5 +1,6 @@
 ﻿using RobsDerbyCars.DAL;
 using RobsDerbyCars.Models;
+using RobsDerbyCars.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,16 @@ namespace RobsDerbyCars.Controllers
     {
        private DerbyContext db = new DerbyContext();
 
+
+//Index *************************************************************************************
         // GET: Car
         public ActionResult Index()
         {
             return View(db.Cars.ToList());
         }
+
+
+//Detail ************************************************************************************
 
         public ActionResult Detail(int? id)
         {
@@ -40,9 +46,31 @@ namespace RobsDerbyCars.Controllers
             return View(car);
             }
 
+
+//CarOwners *********************************************************************************
+
+        public ActionResult CarOwners()
+        {
+            IQueryable<CarOwners> data = from car in db.Cars
+                                                   group car by car.Owner  into ownerGroup
+                                                   select new CarOwners()
+                                                   {
+                                                       Owner = ownerGroup.Key,
+                                                       CarCount = ownerGroup.Count()
+                                                   };
+            return View(data.ToList());
+        }
+
     }
 }
 
+/*/Dispose ***********************************************************************************
+
+protected override void Dispose(bool disposing)
+{
+    db.Dispose();
+    base.Dispose(disposing);
+}
 
 
 /* BookInfoContext db = new BookInfoContext();

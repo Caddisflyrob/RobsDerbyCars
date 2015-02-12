@@ -15,7 +15,7 @@ namespace RobsDerbyCars.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Rob's Derby Cars web site was created by Rob Callahan with C# ASP.NET MVC.";
+            ViewBag.Message = "Rob's Derby Cars web site was created by Rob Callahan using C# ASP.NET with MVC.";
             return View();
         }
 

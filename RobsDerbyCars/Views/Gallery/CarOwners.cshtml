@@ -1,0 +1,35 @@
+﻿@model IEnumerable<RobsDerbyCars.ViewModels.CarOwners>
+
+@{
+    ViewBag.Title = "Car Owners";
+}
+
+<h2>Car Statistics</h2>
+
+<table>
+    <tr>
+        <th>
+            Owner
+        </th>
+        <th></th>
+        <th>
+            Number of Cars
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+               @Html.DisplayFor(modelItem => item.Owner) 
+            </td>
+            <td>
+                . . . . . . . . . . . . .
+            </td>
+            <td>
+                . . . @item.CarCount
+            </td>
+        </tr>
+    }
+</table>
+
