@@ -2,7 +2,7 @@
 
 <h1 style="text-align:center"> @Html.DisplayFor(model => model.CarName) </h1>  @*displays Car Name*@
 <dl class="dl-horizontal">
-    <img src="@Url.Content(Model.PictureURL)" alt="Opps!">                     @*displays picture*@
+    <img src="@Url.Content("~/Images/"+ Model.PictureURL)" alt="Opps!">                     @*displays picture*@
     <dt>Owner/Builder:</dt>
     <dd> @Html.DisplayFor(model => model.Owner)</dd>                           @*displays Owner*@
 </dl>    

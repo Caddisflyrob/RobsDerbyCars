@@ -206,6 +206,9 @@
     <Content Include="Views\RaceIdeas\Index.cshtml" />
     <Content Include="Views\RaceOrganizer\Index.cshtml" />
     <Content Include="Views\Gallery\CarOwners.cshtml" />
+    <Content Include="Views\RaceOrganizer\AddRacers.cshtml" />
+    <Content Include="Views\RaceOrganizer\EditRacer.cshtml" />
+    <Content Include="Views\RaceOrganizer\RemoveRacer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

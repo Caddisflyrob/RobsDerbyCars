@@ -14,13 +14,19 @@ namespace RobsDerbyCars.Controllers
     public class RacerController : Controller
     {
         private DerbyContext db = new DerbyContext();
-
+//***********************************************************************************************************************************************
+//Index
+//***********************************************************************************************************************************************
         // GET: Racer
         public ActionResult Index()
         {
             return View(db.Racers.ToList());
         }
 
+
+//***********************************************************************************************************************************************
+//Details
+//***********************************************************************************************************************************************
         // GET: Racer/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,12 +41,16 @@ namespace RobsDerbyCars.Controllers
             }
             return View(racer);
         }
-
+//***********************************************************************************************************************************************
+//Create
+//***********************************************************************************************************************************************
         // GET: Racer/Create
         public ActionResult Create()
         {
             return View();
         }
+
+
 
         // POST: Racer/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -58,6 +68,11 @@ namespace RobsDerbyCars.Controllers
 
             return View(racer);
         }
+
+//***********************************************************************************************************************************************
+//Edit
+//***********************************************************************************************************************************************
+
 
         // GET: Racer/Edit/5
         public ActionResult Edit(int? id)
@@ -89,7 +104,11 @@ namespace RobsDerbyCars.Controllers
             }
             return View(racer);
         }
-
+        
+        
+//***********************************************************************************************************************************************
+//Delete
+//***********************************************************************************************************************************************
         // GET: Racer/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -115,6 +134,8 @@ namespace RobsDerbyCars.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
 
         protected override void Dispose(bool disposing)
         {

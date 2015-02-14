@@ -13,7 +13,7 @@ namespace RobsDerbyCars.Models
         public int Age { get; set; }
         public string Division { get; set; }
         public int NumWins { get; set; }
-
-        //public virtual ICollection<Enrollment> Enrollments { get; set; }
+   
     }
-}
+  }
+

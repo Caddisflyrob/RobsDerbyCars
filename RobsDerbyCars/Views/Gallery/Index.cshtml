@@ -15,7 +15,7 @@
         @Html.DisplayFor(modelItem => item.CarName)
         <br />
         <a href="@Url.Action("Detail", "Gallery",new { id = item.CarID })">
-            <img src="@Url.Content(item.ThumbnailURL)" alt="Opps!">
+            <img src="@Url.Content("~/Images/"+ item.ThumbnailURL)" alt="Opps!">
         </a> 
         <br /><br/>
         @*Html.ActionLink("CarDetails", "Detail", new { id = item.CarID })*@ 

@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<RobsDerbyCars.Models.Racer>
 @{
     ViewBag.Title = "Race Organizer";
 }
@@ -8,4 +8,51 @@
 <h2 style="color:red">@ViewBag.Label</h2>
 <br />
 <h3>@ViewBag.Message</h3>
+**********************************************************************************************<br/>
+<p class="btn btn-default"> @Html.ActionLink("Add New Racer", "AddRacers", "RaceOrganizer")</p>  
 
+
+<h2> Current Racers </h2>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Division)
+        </th>
+        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Division)
+            </td>
+            
+            <td>
+                @Html.ActionLink("Edit", "EditRacer", new { id = item.RacerID }) |
+                @Html.ActionLink("Remove", "RemoveRacer", new { id = item.RacerID })
+            </td>
+        </tr>
+    }
+
+</table>

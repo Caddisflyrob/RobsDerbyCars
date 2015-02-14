@@ -44,7 +44,7 @@
                         </td>
                         <td>
 
-                            <img src="@Url.Content(item.ThumbnailURL)" alt="Opps!" />
+                            <img src="@Url.Content("~/Images/"+ item.ThumbnailURL)" alt="Opps!" />
 
                         </td>
                         <td>
@@ -68,3 +68,4 @@
                 }
 
             </table>
+<p class="btn btn-default"> @Html.ActionLink("Back to Manager", "Index", "Manager")</p>
