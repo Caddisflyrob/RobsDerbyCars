@@ -8,13 +8,13 @@
 
 <table class="table">
     @foreach (var heat in Model)
-    {
+    { 
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => heat.FirstRacer)
+                @Html.DisplayFor(modelItem => heat.FirstRacerName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => heat.SecondRacer)
+                @Html.DisplayFor(modelItem => heat.SecondRacerName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => heat.FirstRacerIsWinner)
@@ -22,7 +22,9 @@
             <td>
                 @Html.DisplayFor(modelItem => heat.IsComplete)
             </td>
-           
+            <td>
+                @Html.DisplayFor(modelItem => heat.Division)
+            </td>
 
         </tr>
     }

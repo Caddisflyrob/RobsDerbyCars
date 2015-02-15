@@ -14,6 +14,9 @@ namespace RobsDerbyCars.Models
         public int SecondRacer { get; set; }
         public bool FirstRacerIsWinner { get; set; }
         public bool IsComplete { get; set; }
+        public String Division { get; set; }
+        public String FirstRacerName { get; set; }
+        public String SecondRacerName { get; set; }
                 
        public virtual ICollection<Racer> Racers { get; set; }
     }

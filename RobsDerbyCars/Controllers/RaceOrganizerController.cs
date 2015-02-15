@@ -14,7 +14,9 @@ namespace RobsDerbyCars.Controllers
     {
         private DerbyContext db = new DerbyContext();
 
-        // GET: RaceOrganizer
+        //************************************************************************************************************************
+        // index
+        //************************************************************************************************************************
         public ActionResult Index()
         {
             ViewBag.Label = "The Race Organizer page is under construction.";
@@ -121,6 +123,13 @@ namespace RobsDerbyCars.Controllers
         //*****************************************************************************************************************************
         public ActionResult ShowHeats()
         {
+            
+            foreach (Heat h in db.Heats)         // Clears Heats from the DB
+            {
+                db.Heats.Remove(h);
+            }
+            db.SaveChanges();
+
             CreateHeats("Expedition Rangers");
             CreateHeats("Adventure Rangers");
             CreateHeats("Discovery Rangers");
@@ -137,7 +146,7 @@ namespace RobsDerbyCars.Controllers
         //*****************************************************************************************************************************
         public void CreateHeats(string division)
         {
-            Heat thisHeat = new Heat();
+          Heat thisHeat = new Heat();
             var racers = db.Racers.ToList();
 
 
@@ -147,14 +156,17 @@ namespace RobsDerbyCars.Controllers
                     if (racers[car1].Division == division && racers[car2].Division == division)
                     {
                         thisHeat.FirstRacer = racers[car1].RacerID;
+                        thisHeat.FirstRacerName = racers[car1].FirstName + " " + racers[car1].LastName;
                         thisHeat.SecondRacer = racers[car2].RacerID;
+                        thisHeat.SecondRacerName = racers[car2].FirstName + " " + racers[car2].LastName;
+                        thisHeat.Division = division;
                         db.Heats.Add(thisHeat);             //Add the this heat to the database
                         db.SaveChanges();                   // saves this heat to the DB
                     }
                 }
 
-
-            /*
+            
+            /* 
             Heat thisHeat = new Heat();
             //var racers = db.Racers.ToList();
             IQueryable<Racer> racersInDivlist = from r in db.Racers where r.Division == division select new Racer();  //LINQ gets a collection of all racers in a division 
@@ -175,6 +187,27 @@ namespace RobsDerbyCars.Controllers
            */
 
         }
+
+
+        //*****************************************************************************************************************************
+        // Remove all Racers
+        //*****************************************************************************************************************************
+        public ActionResult RemoveAllRacers()
+        {
+            foreach (Racer r in db.Racers)         // Clears all racers from the DB
+            {
+                db.Racers.Remove(r);
+            }
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+                   
+            
+        
+
+
+
 
 
         //******************************************************************************************************************************
