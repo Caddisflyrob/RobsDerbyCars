@@ -23,12 +23,12 @@ namespace RobsDerbyCars.Controllers
 
             return View(db.Racers.ToList());
         }
-  
-        
-//************************************************************************************************************************
-// AddRacer
-//************************************************************************************************************************
-        // GET: Racer/Create
+
+
+        //************************************************************************************************************************
+        // AddRacer
+        //************************************************************************************************************************
+        // GET
         public ActionResult AddRacers()
         {
             return View();
@@ -36,9 +36,7 @@ namespace RobsDerbyCars.Controllers
 
 
 
-        // POST: Racer/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddRacers([Bind(Include = "RacerID,FirstName,LastName,Age,Division")] Racer racer)
@@ -53,9 +51,9 @@ namespace RobsDerbyCars.Controllers
             return View(racer);
         }
 
-//************************************************************************************************************************
-// EditRacer
-//************************************************************************************************************************     
+        //************************************************************************************************************************
+        // EditRacer
+        //************************************************************************************************************************     
 
         // GET
         public ActionResult EditRacer(int? id)
@@ -87,9 +85,9 @@ namespace RobsDerbyCars.Controllers
         }
 
 
-//************************************************************************************************************************
-// RemoveRacer
-//************************************************************************************************************************            
+        //************************************************************************************************************************
+        // RemoveRacer
+        //************************************************************************************************************************            
 
         // GET
         public ActionResult RemoveRacer(int? id)
@@ -118,9 +116,68 @@ namespace RobsDerbyCars.Controllers
         }
 
 
-//*****************************************************************************************************************************
+        //*****************************************************************************************************************************
+        // ShowHeats
+        //*****************************************************************************************************************************
+        public ActionResult ShowHeats()
+        {
+            CreateHeats("Expedition Rangers");
+            CreateHeats("Adventure Rangers");
+            CreateHeats("Discovery Rangers");
+            CreateHeats("Ranger Kids");
+            CreateHeats("Adult");
+
+            return View(db.Heats.ToList());
+        }
 
 
+
+        //*****************************************************************************************************************************
+        // CreateHeats
+        //*****************************************************************************************************************************
+        public void CreateHeats(string division)
+        {
+            Heat thisHeat = new Heat();
+            var racers = db.Racers.ToList();
+
+
+            for (int car1 = 0; car1 < racers.Count(); car1++)
+                for (int car2 = car1 + 1; car2 < racers.Count(); car2++)
+                {
+                    if (racers[car1].Division == division && racers[car2].Division == division)
+                    {
+                        thisHeat.FirstRacer = racers[car1].RacerID;
+                        thisHeat.SecondRacer = racers[car2].RacerID;
+                        db.Heats.Add(thisHeat);             //Add the this heat to the database
+                        db.SaveChanges();                   // saves this heat to the DB
+                    }
+                }
+
+
+            /*
+            Heat thisHeat = new Heat();
+            //var racers = db.Racers.ToList();
+            IQueryable<Racer> racersInDivlist = from r in db.Racers where r.Division == division select new Racer();  //LINQ gets a collection of all racers in a division 
+            
+            Racer[] racersInDiv = new Racer[racersInDivlist.Count()]; //creates an array of Racer objects 
+            int counter=0;
+            foreach (Racer r in racersInDivlist)   //fills the Array with each racer in the collection
+                 racersInDiv[counter++] = r;
+            
+            for (int car1=1; car1<racersInDiv.Count(); car1++)
+                for (int car2 = car1 + 1; car2 <= racersInDiv.Count(); car2++)
+                {
+                    thisHeat.FirstRacer = racersInDiv[car1].RacerID;
+                    thisHeat.SecondRacer = racersInDiv[car2].RacerID;
+                    db.Heats.Add(thisHeat);                                 //Add the this heat to the database
+                }
+            db.SaveChanges();        //when all the heats have been added, they are saved to the DB
+           */
+
+        }
+
+
+        //******************************************************************************************************************************
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -128,14 +185,14 @@ namespace RobsDerbyCars.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }   
-        
-        
-        
-        
-        
-        
-        
+        }
+
+
+
+
+
+
+
         /*/GET action
         public ActionResult AddRacers()
         {

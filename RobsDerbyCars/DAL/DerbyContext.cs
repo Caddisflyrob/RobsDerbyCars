@@ -18,6 +18,7 @@ namespace RobsDerbyCars.DAL
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Heat> Heats { get; set; }
         public DbSet<Racer> Racers { get; set; }
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder) 
         {

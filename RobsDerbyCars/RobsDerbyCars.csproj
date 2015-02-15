@@ -209,6 +209,7 @@
     <Content Include="Views\RaceOrganizer\AddRacers.cshtml" />
     <Content Include="Views\RaceOrganizer\EditRacer.cshtml" />
     <Content Include="Views\RaceOrganizer\RemoveRacer.cshtml" />
+    <Content Include="Views\RaceOrganizer\ShowHeats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

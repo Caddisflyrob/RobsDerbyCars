@@ -81,7 +81,8 @@ namespace RobsDerbyCars.DAL
             context.SaveChanges();//Saves changes to the DB
 
 
-            var Heats = new List<Heat>
+            /*
+             var Heats = new List<Heat>
             {
             new Heat{FirstRacer=1, SecondRacer=2 ,FirstRacerIsWinner =true, IsComplete= true },
             new Heat{FirstRacer=1, SecondRacer=3 ,FirstRacerIsWinner =false, IsComplete= true },
@@ -92,13 +93,56 @@ namespace RobsDerbyCars.DAL
             };
             Heats.ForEach(h => context.Heats.Add(h)); //Lamda expression used to populate the Heats table in the DB
             context.SaveChanges(); //Saves changes to the DB
+            */
+
+           /* var Div = new List<RaceDivision>
+            {
+                new RaceDivision{Division="Expedition Rangers"},
+                new RaceDivision{Division="Adventure Rangers"},
+                new RaceDivision{Division="Discovery Rangers"},
+                new RaceDivision{Division="Ranger Kids"},
+                new RaceDivision{Division="Adult"},
+             };
+            Div.ForEach(d => context.RaceDivisions.Add(d)); //Lamda expression used to populate the Racers table in the DB
+            context.SaveChanges(); //Saves changes to the DB
+            */
+
+
+
 
             var Racers = new List<Racer>
             {
             new Racer{FirstName="Andrew", LastName="Callahan" ,Age =15, Division= "Expedition Rangers" },
+            new Racer{FirstName="Brandon", LastName="Running" ,Age =15, Division= "Expedition Rangers" },
+            new Racer{FirstName="Mason", LastName="Parker" ,Age =14, Division= "Expedition Rangers" },
+            new Racer{FirstName="Daniel", LastName="Callahan" ,Age =17, Division= "Expedition Rangers" },
+            new Racer{FirstName="Madline", LastName="Callahan" ,Age =15, Division= "Expedition Rangers" },
+
             new Racer{FirstName="Chase", LastName="Napper" ,Age =12, Division= "Adventure Rangers" },
-            new Racer{FirstName="Brandon", LastName="Running" ,Age =14, Division= "Expedition Rangers" },
+            new Racer{FirstName="Kenton", LastName="Sparks" ,Age =13, Division= "Adventure Rangers" },
+            new Racer{FirstName="Chris", LastName="Delano" ,Age =11, Division= "Adventure Rangers" },
+            new Racer{FirstName="Sarah", LastName="Callahan" ,Age =12, Division= "Adventure Rangers" },
+           
+
+            new Racer{FirstName="Jett", LastName="LastName" ,Age =11, Division= "Discovery Rangers" },
+            new Racer{FirstName="Jeremy", LastName="Vargus" ,Age =10, Division= "Discovery Rangers" },
+            new Racer{FirstName="Matthew", LastName="Anderson" ,Age =9, Division= "Discovery Rangers" },
+            new Racer{FirstName="Eric", LastName="Fredrick" ,Age =9, Division= "Discovery Rangers" },
+            new Racer{FirstName="Jenny", LastName="Smith" ,Age =9, Division= "Discovery Rangers" },
+            new Racer{FirstName="Dooders", LastName="Callahan" ,Age =8, Division= "Discovery Rangers" },
+
+            new Racer{FirstName="Ethan", LastName="Donaldson" ,Age =6, Division= "Ranger Kids" },
+            new Racer{FirstName="Grace", LastName="Running" ,Age =7, Division= "Ranger Kids" },
+            new Racer{FirstName="Emma", LastName="Donaldson" ,Age =7, Division= "Ranger Kids" },
+            new Racer{FirstName="Bat", LastName="Man" ,Age =5, Division= "Ranger Kids" },
+            new Racer{FirstName="Super", LastName="Man" ,Age =5, Division= "Ranger Kids"},
+
             new Racer{FirstName="Rob", LastName="Callahan" ,Age =45, Division= "Adult" },
+            new Racer{FirstName="Karina", LastName="Callahan" ,Age =45, Division= "Adult" },
+            new Racer{FirstName="Ed", LastName="Powell" ,Age =45, Division= "Adult" },
+            new Racer{FirstName="Glen", LastName="Nichols" ,Age =45, Division= "Adult" },
+            new Racer{FirstName="Keith", LastName="Blunk" ,Age =45, Division= "Adult" },
+            new Racer{FirstName="Larry", LastName="Macnaughton" ,Age =55, Division= "Adult" },
             };
             Racers.ForEach(r => context.Racers.Add(r)); //Lamda expression used to populate the Racers table in the DB
             context.SaveChanges(); //Saves changes to the DB

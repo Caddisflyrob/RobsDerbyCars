@@ -15,7 +15,7 @@ namespace RobsDerbyCars.Models
         public bool FirstRacerIsWinner { get; set; }
         public bool IsComplete { get; set; }
                 
-       //public virtual ICollection<Racer> Racers { get; set; }
+       public virtual ICollection<Racer> Racers { get; set; }
     }
     
 }
