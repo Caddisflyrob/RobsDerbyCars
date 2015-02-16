@@ -112,37 +112,37 @@ namespace RobsDerbyCars.DAL
 
             var Racers = new List<Racer>
             {
-            new Racer{FirstName="Andrew", LastName="Callahan" ,Age =15, Division= "Expedition Rangers" },
-            new Racer{FirstName="Brandon", LastName="Running" ,Age =15, Division= "Expedition Rangers" },
-            new Racer{FirstName="Mason", LastName="Parker" ,Age =14, Division= "Expedition Rangers" },
-            new Racer{FirstName="Daniel", LastName="Callahan" ,Age =17, Division= "Expedition Rangers" },
-            new Racer{FirstName="Madline", LastName="Callahan" ,Age =15, Division= "Expedition Rangers" },
+            new Racer{FirstName="Andrew", LastName="Callahan" , Division= "Expedition Rangers" },
+            new Racer{FirstName="Brandon", LastName="Running" , Division= "Expedition Rangers" },
+            new Racer{FirstName="Mason", LastName="Parker" , Division= "Expedition Rangers" },
+            new Racer{FirstName="Daniel", LastName="Callahan" , Division= "Expedition Rangers" },
+            new Racer{FirstName="Madline", LastName="Callahan" , Division= "Expedition Rangers" },
 
-            new Racer{FirstName="Chase", LastName="Napper" ,Age =12, Division= "Adventure Rangers" },
-            new Racer{FirstName="Kenton", LastName="Sparks" ,Age =13, Division= "Adventure Rangers" },
-            new Racer{FirstName="Chris", LastName="Delano" ,Age =11, Division= "Adventure Rangers" },
-            new Racer{FirstName="Sarah", LastName="Callahan" ,Age =12, Division= "Adventure Rangers" },
+            new Racer{FirstName="Chase", LastName="Napper" , Division= "Adventure Rangers" },
+            new Racer{FirstName="Kenton", LastName="Sparks" , Division= "Adventure Rangers" },
+            new Racer{FirstName="Chris", LastName="Delano" , Division= "Adventure Rangers" },
+            new Racer{FirstName="Sarah", LastName="Callahan" , Division= "Adventure Rangers" },
            
 
-            new Racer{FirstName="Jett", LastName="LastName" ,Age =11, Division= "Discovery Rangers" },
-            new Racer{FirstName="Jeremy", LastName="Vargus" ,Age =10, Division= "Discovery Rangers" },
-            new Racer{FirstName="Matthew", LastName="Anderson" ,Age =9, Division= "Discovery Rangers" },
-            new Racer{FirstName="Eric", LastName="Fredrick" ,Age =9, Division= "Discovery Rangers" },
-            new Racer{FirstName="Jenny", LastName="Smith" ,Age =9, Division= "Discovery Rangers" },
-            new Racer{FirstName="Dooders", LastName="Callahan" ,Age =8, Division= "Discovery Rangers" },
+            new Racer{FirstName="Jett", LastName="LastName" , Division= "Discovery Rangers" },
+            new Racer{FirstName="Jeremy", LastName="Vargus" , Division= "Discovery Rangers" },
+            new Racer{FirstName="Matthew", LastName="Anderson" , Division= "Discovery Rangers" },
+            new Racer{FirstName="Eric", LastName="Fredrick" , Division= "Discovery Rangers" },
+            new Racer{FirstName="Jenny", LastName="Smith" , Division= "Discovery Rangers" },
+            new Racer{FirstName="Dooders", LastName="Callahan" , Division= "Discovery Rangers" },
 
-            new Racer{FirstName="Ethan", LastName="Donaldson" ,Age =6, Division= "Ranger Kids" },
-            new Racer{FirstName="Grace", LastName="Running" ,Age =7, Division= "Ranger Kids" },
-            new Racer{FirstName="Emma", LastName="Donaldson" ,Age =7, Division= "Ranger Kids" },
-            new Racer{FirstName="Bat", LastName="Man" ,Age =5, Division= "Ranger Kids" },
-            new Racer{FirstName="Super", LastName="Man" ,Age =5, Division= "Ranger Kids"},
+            new Racer{FirstName="Ethan", LastName="Donaldson" , Division= "Ranger Kids" },
+            new Racer{FirstName="Grace", LastName="Running" , Division= "Ranger Kids" },
+            new Racer{FirstName="Emma", LastName="Donaldson" , Division= "Ranger Kids" },
+            new Racer{FirstName="Bat", LastName="Man" , Division= "Ranger Kids" },
+            new Racer{FirstName="Super", LastName="Man" , Division= "Ranger Kids"},
 
-            new Racer{FirstName="Rob", LastName="Callahan" ,Age =45, Division= "Adult" },
-            new Racer{FirstName="Karina", LastName="Callahan" ,Age =45, Division= "Adult" },
-            new Racer{FirstName="Ed", LastName="Powell" ,Age =45, Division= "Adult" },
-            new Racer{FirstName="Glen", LastName="Nichols" ,Age =45, Division= "Adult" },
-            new Racer{FirstName="Keith", LastName="Blunk" ,Age =45, Division= "Adult" },
-            new Racer{FirstName="Larry", LastName="Macnaughton" ,Age =55, Division= "Adult" },
+            new Racer{FirstName="Rob", LastName="Callahan" , Division= "Adult" },
+            new Racer{FirstName="Karina", LastName="Callahan" , Division= "Adult" },
+            new Racer{FirstName="Ed", LastName="Powell" , Division= "Adult" },
+            new Racer{FirstName="Glen", LastName="Nichols" , Division= "Adult" },
+            new Racer{FirstName="Keith", LastName="Blunk" , Division= "Adult" },
+            new Racer{FirstName="Larry", LastName="Macnaughton" , Division= "Adult" },
             };
             Racers.ForEach(r => context.Racers.Add(r)); //Lamda expression used to populate the Racers table in the DB
             context.SaveChanges(); //Saves changes to the DB

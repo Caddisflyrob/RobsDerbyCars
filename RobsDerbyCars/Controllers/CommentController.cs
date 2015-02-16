@@ -47,8 +47,10 @@ namespace RobsDerbyCars.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CommentID,Name,CommentText,CarID")] Comment comment)
+        public ActionResult Create([Bind(Include = "CommentID,Name,CommentText,CarIDNum")] Comment comment)
         {
+            //comment.CarIdNum = id;
+
             if (ModelState.IsValid)
             {
                 db.Comments.Add(comment);

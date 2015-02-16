@@ -137,6 +137,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Heat.cs" />
     <Compile Include="Models\Racer.cs" />
+    <Compile Include="ViewModels\AddCarAndComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\CarOwners.cs" />
   </ItemGroup>
@@ -210,6 +211,8 @@
     <Content Include="Views\RaceOrganizer\EditRacer.cshtml" />
     <Content Include="Views\RaceOrganizer\RemoveRacer.cshtml" />
     <Content Include="Views\RaceOrganizer\ShowHeats.cshtml" />
+    <Content Include="Views\Gallery\AddComment.cshtml" />
+    <Content Include="Views\Manager\AddCarAndComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
