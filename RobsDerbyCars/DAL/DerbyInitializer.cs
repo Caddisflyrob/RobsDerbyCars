@@ -15,7 +15,7 @@ namespace RobsDerbyCars.DAL
             var Cars = new List<Car>
             {
             new Car{CarName="Woody",PictureURL="Woody.jpg",ThumbnailURL="WoodyThumb.jpg", Description=" Woody with surf board ", Owner = "Rob Callahan"},
-            new Car{CarName="Rainbow",PictureURL="Rainbow.jpg",ThumbnailURL="RainbowThumb.jpg", Description=" I built this Rainbow trout to honor my other hobby which is flyfishing.  ", Owner = "Rob Callahan"},
+            new Car{CarName="Rainbow",PictureURL="Rainbow.jpg",ThumbnailURL="RainbowThumb.jpg", Description=" I built this Rainbow trout to honor flyfishing, my other hobby.", Owner = "Rob Callahan"},
             new Car{CarName="Freedom",PictureURL="Freedom.jpg",ThumbnailURL="FreedomThumb.jpg", Description=" Eagle and Flag ", Owner = "Rob Callahan"},
             new Car{CarName="Speeder",PictureURL="Landspeeder.jpg",ThumbnailURL="LandspeederThumb.jpg", Description=" Star Wars Landspeeder ", Owner = "Andrew Callahan"},
             new Car{CarName="Crusin' Calculator",PictureURL="Pencil.jpg",ThumbnailURL="PencilThumb.jpg", Description="Pencil", Owner = "Karina Callahan"},
@@ -28,7 +28,7 @@ namespace RobsDerbyCars.DAL
             new Car{CarName="Gold Fever",PictureURL="GoldFever.jpg",ThumbnailURL="GoldFeverThumb.jpg", Description="Futuristic sporst car ", Owner = "Martin Callahan"},
             new Car{CarName="Totem",PictureURL="Totem.jpg",ThumbnailURL="TotemThumb.jpg", Description="Totem Pole ", Owner = "Rob Callahan"},
             new Car{CarName="Mother of Pearl",PictureURL="MotherOfPearl.jpg",ThumbnailURL="MotherOfPearlThumb.jpg", Description="Wedge car painted with Pearl nail polish ", Owner = "Ray Callahan"},
-            new Car{CarName="Formula 1",PictureURL="Formula1.jpg",ThumbnailURL="Formula1Thumb.jpg", Description="This was the first Pinewood derby I watched being made. My Dad and Brother Martin built it in the early 1970's. Over the years it has sustained extensive damage. The tail spoiler is missing and if I remember corectly, there used to be a driver in the cockpit. ", Owner = "Martin Callahan"},
+            new Car{CarName="Formula 1",PictureURL="Formula1.jpg",ThumbnailURL="Formula1Thumb.jpg", Description="This was the first Pinewood derby I watched being made. My Dad and Brother, Martin, built it in the early 1970's. Over the years it has sustained extensive damage. The tail spoiler is missing and if I remember corectly, there used to be a driver in the cockpit. ", Owner = "Martin Callahan"},
             new Car{CarName="Spark",PictureURL="Spark.jpg",ThumbnailURL="SparkThumb.jpg", Description="I built this car back in the late 1970's. Although it it is a nice, slick design, this is the only car I ever built that was not fast enough to qualify for a race.", Owner = "Rob Callahan"},
             new Car{CarName="Lil' Mike",PictureURL="LilMike.jpg",ThumbnailURL="LilMikeThumb.jpg", Description="Cool car made by my brother Martin. ", Owner = "Martin Callahan"},
             new Car{CarName="Slick 5",PictureURL="Slick5.jpg",ThumbnailURL="Slick5Thumb.jpg", Description="Flat Racecar. ", Owner = "Martin Callahan"},
