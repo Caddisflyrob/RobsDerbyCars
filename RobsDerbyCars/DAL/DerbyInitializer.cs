@@ -53,11 +53,11 @@ namespace RobsDerbyCars.DAL
             new Car{CarName="Snake",PictureURL="Snake.jpg",ThumbnailURL="SnakeThumb.jpg", Description="Green snake ", Owner = "Rob Callahan"},
             new Car{CarName="Sluggo",PictureURL="Sluggo.jpg",ThumbnailURL="SluggoThumb.jpg", Description="For being a Slug, it was remarkably fast. It won second place for speed.", Owner = "Rob Callahan"},
             new Car{CarName="The Alphabetizer",PictureURL="Alphabetizer.jpg",ThumbnailURL="AlphabetizerThumb.jpg", Description="Fhe complete alphabet carved into a car. As you can imagine, It took lots of scroll saw work. ", Owner = "Karina Callahan"},
-            new Car{CarName="Choo Choo ",PictureURL="ChooChoo .jpg",ThumbnailURL="ChooChooThumb.jpg", Description="Old Steam Engine Train", Owner = "Rob Callahan"},
+            new Car{CarName="Choo Choo ",PictureURL="ChooChoo.jpg",ThumbnailURL="ChooChooThumb.jpg", Description="Old Steam Engine Train", Owner = "Rob Callahan"},
             new Car{CarName="Rub-a-Dub-Dub ",PictureURL="Rub-a-Dub-Dub.jpg",ThumbnailURL="Rub-a-Dub-DubThumb.jpg", Description="Bathtub complete with rubber ducky and water pipes. ", Owner = "Rob Callahan"},
             new Car{CarName="Westward Ho!",PictureURL="Westward-Ho.jpg",ThumbnailURL="Westward-HoThumb.jpg", Description="Covered wagon", Owner = "Rob Callahan"},
             new Car{CarName="Pinewood Derby Monster ",PictureURL="Monster.jpg",ThumbnailURL="MonsterThumb.jpg", Description="This was my first Pinewood Derby car. It won second place for show in the state of Massachucetts back in 1974. ", Owner = "Rob Callahan"},
-            new Car{CarName="Insideout Pinwood Derby Car",PictureURL="InsideoutPWD.jpg",ThumbnailURL="InsideoutPWDThumb.jpg", Description="There is unique creativity in this racecar cut from the inside of the block of wood. It won first place in speed and scond in show.", Owner = "Andrew Callahan"},
+            new Car{CarName="Insideout Pinewood Derby Car",PictureURL="InsideoutPWD.jpg",ThumbnailURL="InsideoutPWDThumb.jpg", Description="There is unique creativity in this racecar cut from the inside of the block of wood. It won first place in speed and scond in show.", Owner = "Andrew Callahan"},
             
             
             };
@@ -95,17 +95,17 @@ namespace RobsDerbyCars.DAL
             context.SaveChanges(); //Saves changes to the DB
             */
 
-           /* var Div = new List<RaceDivision>
+            var Div = new List<Division>
             {
-                new RaceDivision{Division="Expedition Rangers"},
-                new RaceDivision{Division="Adventure Rangers"},
-                new RaceDivision{Division="Discovery Rangers"},
-                new RaceDivision{Division="Ranger Kids"},
-                new RaceDivision{Division="Adult"},
+                new Division{DivisionName="Expedition Rangers"},
+                new Division{DivisionName="Adventure Rangers"},
+                new Division{DivisionName="Discovery Rangers"},
+                new Division{DivisionName="Ranger Kids"},
+                new Division{DivisionName="Adult"},
              };
-            Div.ForEach(d => context.RaceDivisions.Add(d)); //Lamda expression used to populate the Racers table in the DB
+            Div.ForEach(d => context.Divisions.Add(d)); //Lamda expression used to populate the Racers table in the DB
             context.SaveChanges(); //Saves changes to the DB
-            */
+            
 
 
 
@@ -116,7 +116,7 @@ namespace RobsDerbyCars.DAL
             new Racer{FirstName="Brandon", LastName="Running" , Division= "Expedition Rangers" },
             new Racer{FirstName="Mason", LastName="Parker" , Division= "Expedition Rangers" },
             new Racer{FirstName="Daniel", LastName="Callahan" , Division= "Expedition Rangers" },
-            new Racer{FirstName="Madline", LastName="Callahan" , Division= "Expedition Rangers" },
+            new Racer{FirstName="Madeline", LastName="Callahan" , Division= "Expedition Rangers" },
 
             new Racer{FirstName="Chase", LastName="Napper" , Division= "Adventure Rangers" },
             new Racer{FirstName="Kenton", LastName="Sparks" , Division= "Adventure Rangers" },

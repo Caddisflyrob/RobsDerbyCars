@@ -1,0 +1,71 @@
+﻿@model IEnumerable<RobsDerbyCars.Models.Car>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-md-8">
+        <h2>Manage Cars Gallery</h2>
+    </div>
+    <div class="col-md-4">
+        <p class="btn btn-default"> @Html.ActionLink("Return to Manager Page", "Index", "Manager")</p>
+    </div >
+</div>
+
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CarName)
+                    </th>
+                    <th>   </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PictureURL)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ThumbnailURL)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Description)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Owner)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CarName)
+                        </td>
+                        <td>
+
+                            <img src="@Url.Content("~/Images/"+ item.ThumbnailURL)" alt="Opps!" />
+
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PictureURL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ThumbnailURL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Owner)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.CarID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.CarID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.CarID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+<p class="btn btn-default"> @Html.ActionLink("Back to Manager", "Index", "Manager")</p>

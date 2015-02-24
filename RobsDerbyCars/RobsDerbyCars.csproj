@@ -120,6 +120,7 @@
     <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\DerbyHelpersController.cs" />
+    <Compile Include="Controllers\DivisionsController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\GarageController.cs" />
     <Compile Include="Controllers\HeatController.cs" />
@@ -128,18 +129,31 @@
     <Compile Include="Controllers\RaceIdeasController.cs" />
     <Compile Include="Controllers\RaceOrganizerController.cs" />
     <Compile Include="Controllers\RacerController.cs" />
+    <Compile Include="Controllers\RacesController.cs" />
     <Compile Include="DAL\DerbyContext.cs" />
     <Compile Include="DAL\DerbyInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201502232350419_InitialCreate.cs" />
+    <Compile Include="Migrations\201502232350419_InitialCreate.Designer.cs">
+      <DependentUpon>201502232350419_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Car.cs" />
     <Compile Include="Models\Comment.cs" />
+    <Compile Include="Models\Division.cs" />
     <Compile Include="Models\Heat.cs" />
+    <Compile Include="Models\Race.cs" />
     <Compile Include="Models\Racer.cs" />
     <Compile Include="ViewModels\AddCarAndComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AddHeatsToRaceVM.cs" />
+    <Compile Include="ViewModels\AddRacer.cs" />
     <Compile Include="ViewModels\CarOwners.cs" />
+    <Compile Include="ViewModels\CreateRaceVM.cs" />
+    <Compile Include="ViewModels\RaceOrganizerIndexVM.cs" />
+    <Compile Include="ViewModels\ShowRaceVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -150,6 +164,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\RobsDerbyCars - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\RobsDerbyCars - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -213,6 +229,27 @@
     <Content Include="Views\RaceOrganizer\ShowHeats.cshtml" />
     <Content Include="Views\Gallery\AddComment.cshtml" />
     <Content Include="Views\Manager\AddCarAndComment.cshtml" />
+    <Content Include="Views\Divisions\Create.cshtml" />
+    <Content Include="Views\Divisions\Delete.cshtml" />
+    <Content Include="Views\Divisions\Details.cshtml" />
+    <Content Include="Views\Divisions\Edit.cshtml" />
+    <Content Include="Views\Divisions\Index.cshtml" />
+    <Content Include="Views\RaceOrganizer\AddDivision.cshtml" />
+    <Content Include="Views\RaceOrganizer\EditDivision.cshtml" />
+    <Content Include="Views\RaceOrganizer\RemoveDivision.cshtml" />
+    <Content Include="Views\RaceOrganizer\RemoveAllRacers.cshtml" />
+    <Content Include="Views\RaceOrganizer\RemoveAllDivisions.cshtml" />
+    <Content Include="Views\Races\Create.cshtml" />
+    <Content Include="Views\Races\Delete.cshtml" />
+    <Content Include="Views\Races\Details.cshtml" />
+    <Content Include="Views\Races\Edit.cshtml" />
+    <Content Include="Views\Races\Index.cshtml" />
+    <Content Include="Views\RaceOrganizer\CreateRace.cshtml" />
+    <Content Include="Views\RaceOrganizer\SelectARace.cshtml" />
+    <Content Include="Views\RaceOrganizer\ShowRace.cshtml" />
+    <Content Include="Views\RaceOrganizer\AddHeatsToRace.cshtml" />
+    <Content Include="Views\RaceOrganizer\RaceAHeat.cshtml" />
+    <Content Include="Views\RaceOrganizer\DuplicateDivision.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -224,6 +261,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201502232350419_InitialCreate.resx">
+      <DependentUpon>201502232350419_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

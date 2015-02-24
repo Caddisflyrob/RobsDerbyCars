@@ -1,0 +1,28 @@
+﻿@model RobsDerbyCars.Models.Racer
+
+@{
+    ViewBag.Title = "Remove All Racers";
+}
+
+<h2>Remove Racer</h2>
+<hr />
+@if (ViewBag.IsEmpty == true)
+{
+    <h3 style="color:Blue; font-style:italic"> There currently are no Racers to remove.</h3>
+    <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+}
+else
+{
+<h3>Are you sure you want to remove <b>ALL</b> the racers?</h3>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Remove All" class="btn btn-default" />
+            <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+        </div>
+    }
+</div>
+}

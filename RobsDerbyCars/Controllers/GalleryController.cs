@@ -79,10 +79,12 @@ namespace RobsDerbyCars.Controllers
 
            if (ModelState.IsValid)
             {
+                Car car = db.Cars.Find(ThisID);
                 comment.CarIdNum = ThisID;
                 db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+               return RedirectToAction("Index");
+               //return RedirectToAction("Detail", car.CarID);
             }
 
             return View(comment);

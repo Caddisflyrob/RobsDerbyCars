@@ -1,0 +1,57 @@
+﻿@model RobsDerbyCars.ViewModels.AddHeatsToRaceVM
+@{
+    ViewBag.Title = "Add Heats to a Race";
+}
+
+<h2> Add Heats to a Race </h2>
+
+<hr />
+
+@if (Model.DivisionList.Count() == 0)
+{
+    <h3>There are no races to add heats to.</h3>
+    <h5> Create a race first</h5>
+    <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+    <p class="btn btn-default"> @Html.ActionLink("Create a Race", "CreateRace", "RaceOrganizer")</p>
+}
+else
+{
+    <h4><b style="color:orangered">WARNING!</b> Any heats previously added to the selected race will be deleted from the race.</h4>
+    <hr />
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <h4>Choose the race you want to add Heats to.</h4>
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.RaceID)
+            @Html.HiddenFor(model => model.DivisionList)
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <select name="DivisionName" style="font-size: 20px">
+                        @foreach (var div in Model.DivisionList)
+                        {
+                            <option value="@div"> @div </option>
+                        }
+                    </select>
+                    @Html.ValidationMessageFor(model => model.DivisionName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-10">
+                    <input type="submit" value="Add Heats to Race" class="btn btn-default" />
+                    <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

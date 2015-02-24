@@ -1,0 +1,21 @@
+﻿@model RobsDerbyCars.Models.Division
+
+@{
+    ViewBag.Title = "Remove Division";
+}
+
+<h2>Remove Division</h2>
+<hr />
+<h3>Are you sure you want to remove  <b>@Html.DisplayFor(model => model.DivisionName) </b>?</h3>
+<h4> Any Racer that is assigned to this division will not be included in a race.</h4>
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Yes, Remove" class="btn btn-default" />
+            <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+        </div>
+    }
+</div>

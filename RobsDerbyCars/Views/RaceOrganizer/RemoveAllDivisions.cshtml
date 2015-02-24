@@ -1,0 +1,29 @@
+﻿@model RobsDerbyCars.Models.Division
+
+@{
+    ViewBag.Title = "Remove All Divisions";
+}
+
+<h2>Remove All Divisions</h2>
+<hr />
+
+@if (ViewBag.IsEmpty == true)
+{
+    <h3 style="color:Blue; font-style:italic"> There currently are no divisions to remove.</h3>
+    <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+}
+else
+{
+    <h3>Are you sure you want to remove <b>ALL</b> the Divisions?</h3>
+    <div>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Remove All" class="btn btn-default" />
+                <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+            </div>
+        }
+    </div>
+}

@@ -14,13 +14,19 @@ namespace RobsDerbyCars.Controllers
     public class CommentController : Controller
     {
         private DerbyContext db = new DerbyContext();
-
+        //************************************************************************************
+        //Index
+        //************************************************************************************
         // GET: Comment
         public ActionResult Index()
         {
             return View(db.Comments.ToList());
         }
 
+
+        //************************************************************************************
+        //Detail
+        //************************************************************************************
         // GET: Comment/Details/5
         public ActionResult Details(int? id)
         {
@@ -36,6 +42,10 @@ namespace RobsDerbyCars.Controllers
             return View(comment);
         }
 
+
+        //************************************************************************************
+        //Create
+        //************************************************************************************
         // GET: Comment/Create
         public ActionResult Create()
         {
@@ -61,6 +71,10 @@ namespace RobsDerbyCars.Controllers
             return View(comment);
         }
 
+
+        //************************************************************************************
+        //Edit
+        //************************************************************************************
         // GET: Comment/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -77,11 +91,9 @@ namespace RobsDerbyCars.Controllers
         }
 
         // POST: Comment/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CommentID,Name,CommentText,CarID")] Comment comment)
+        public ActionResult Edit([Bind(Include = "CommentID,Name,CommentText,CarIdNum")] Comment comment)
         {
             if (ModelState.IsValid)
             {
@@ -92,6 +104,10 @@ namespace RobsDerbyCars.Controllers
             return View(comment);
         }
 
+
+        //************************************************************************************
+        //Delete
+        //************************************************************************************
         // GET: Comment/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -118,6 +134,10 @@ namespace RobsDerbyCars.Controllers
             return RedirectToAction("Index");
         }
 
+
+        //************************************************************************************
+        //Dispose
+        //************************************************************************************
         protected override void Dispose(bool disposing)
         {
             if (disposing)

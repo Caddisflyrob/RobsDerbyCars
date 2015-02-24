@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RobsDerbyCars.Models.Heat>
+
+@{
+    ViewBag.Title = "ShowHeats";
+}
+
+<h2>Show Heats</h2>
+
+<table class="table" >
+    @foreach (var heat in Model)
+    { 
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => heat.FirstRacerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => heat.SecondRacerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => heat.FirstRacerIsWinner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => heat.IsComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => heat.Division)
+            </td>
+
+        </tr>
+    }
+
+</table>

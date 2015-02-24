@@ -10,7 +10,6 @@ namespace RobsDerbyCars.Models
         public int RacerID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        //public int Age { get; set; }
         public string Division { get; set; }
         public int NumWins { get; set; }
    
