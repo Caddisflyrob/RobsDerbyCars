@@ -130,8 +130,10 @@
     <Compile Include="Controllers\RaceOrganizerController.cs" />
     <Compile Include="Controllers\RacerController.cs" />
     <Compile Include="Controllers\RacesController.cs" />
+    <Compile Include="DAL\CommentRepository.cs" />
     <Compile Include="DAL\DerbyContext.cs" />
     <Compile Include="DAL\DerbyInitializer.cs" />
+    <Compile Include="DAL\ICommentReository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -154,6 +156,7 @@
     <Compile Include="ViewModels\CreateRaceVM.cs" />
     <Compile Include="ViewModels\RaceOrganizerIndexVM.cs" />
     <Compile Include="ViewModels\ShowRaceVM.cs" />
+    <Compile Include="ViewModels\ShowWinnersVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -250,6 +253,7 @@
     <Content Include="Views\RaceOrganizer\AddHeatsToRace.cshtml" />
     <Content Include="Views\RaceOrganizer\RaceAHeat.cshtml" />
     <Content Include="Views\RaceOrganizer\DuplicateDivision.cshtml" />
+    <Content Include="Views\RaceOrganizer\ShowWinners.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

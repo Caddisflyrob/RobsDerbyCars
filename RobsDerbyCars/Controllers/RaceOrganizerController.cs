@@ -50,6 +50,9 @@ namespace RobsDerbyCars.Controllers
             {
                 return HttpNotFound();
             }
+            heat.SecondRacerIsWinner=false;
+            heat.FirstRacerIsWinner = false;
+            heat.IsComplete = false;
             return View(heat);
         }
 
@@ -58,6 +61,12 @@ namespace RobsDerbyCars.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult RaceAHeat([Bind(Include = "HeatID, RaceID, Division, FirstRacerID, SecondRacerID, FirstRacerName, SecondRacerName, FirstRacerIsWinner, SecondRacerIsWinner, IsComplete")] Heat heat)
         {
+            if (heat.FirstRacerIsWinner)
+                heat.SecondRacerIsWinner = false;
+            else
+                heat.SecondRacerIsWinner = true;
+
+
             int ID = 0;
             if (ModelState.IsValid)
             {
@@ -399,7 +408,7 @@ namespace RobsDerbyCars.Controllers
 
 
         //*****************************************************************************************************************************
-        // CreateHeats  for index list only
+        // Create Heats  for index list only
         //*****************************************************************************************************************************
         public void CreateHeats(string division)
         {
@@ -616,6 +625,199 @@ namespace RobsDerbyCars.Controllers
                 myList.Add(div.DivisionName);
             return (myList);
         }
+
+        //*****************************************************************************************************************************
+        // Calculate and show Winner
+        //*****************************************************************************************************************************
+        public ActionResult ShowWinners(string div) //takes in a division name as string
+        {
+            div = "Sleepy Bunnies"; //for testing
+
+            ShowWinnersVM SWVM = new ShowWinnersVM();
+            int winnerId;
+            string ThisDivName = "";
+            List<Heat> HeatList = new List<Heat>();
+            List<Racer> RacerList = new List<Racer>();
+            int firstPlaceRacerID = 0;
+            int secondPlaceRacerID = 0;
+            int thirdPlaceRacerID = 0;
+            int fourthPlaceRacerID = 0;
+            int fifthPlaceRacerID = 0;
+            int sixthPlaceRacerID = 0;
+            int first = 0;
+            int second = 0;
+            int third = 0;
+            int fourth = 0;
+            int fifth = 0;
+            int sixth = 0;
+
+            
+            ThisDivName = div;       // gets the division name for the matching ID
+            
+
+            foreach (Racer r in db.Racers)
+            {
+                if (r.Division == ThisDivName)           //clears all wins from racers in this division
+                    r.NumWins = 0;
+                RacerList.Add(r);
+            }
+
+            foreach (Heat h in db.Heats)                //finds all the heats with a matching Division name
+                if (h.Division == ThisDivName)
+                    HeatList.Add(h);                    //adds the matching heats to a list
+
+            foreach (Heat h in HeatList)
+            {
+                if (h.FirstRacerIsWinner)                // gets the RacerID of thr winner for a heat
+                    winnerId = h.FirstRacerID;
+                else
+                    winnerId = h.SecondRacerID;
+
+                foreach (Racer r in RacerList)           // increments the number of wins for the winner of each heat
+                    if (r.RacerID == winnerId)
+                        r.NumWins++;
+            }
+            first = 0;
+            second = 0;
+            third = 0;
+            fourth = 0;
+            fifth = 0;
+            sixth = 0;
+
+            for (int x = RacerList.Count(); x > 0; x--)   //puts racers into positions based on number of wins
+                foreach (Racer r in RacerList)
+                    if (r.NumWins == x)
+                        if (first == 0)
+                        {
+                            first = r.NumWins;
+                            firstPlaceRacerID = r.RacerID;
+                        }
+                        else if (second == 0)
+                        {
+                            second = r.NumWins;
+                            secondPlaceRacerID = r.RacerID;
+                        }
+                        else if (third == 0)
+                        {
+                            third = r.NumWins;
+                            thirdPlaceRacerID = r.RacerID;
+                        }
+                        else if (fourth == 0)
+                        {
+                            fourth = r.NumWins;
+                            fourthPlaceRacerID = r.RacerID;
+                        }
+                        else if (fifth == 0)
+                        {
+                            fifth = r.NumWins;
+                            fifthPlaceRacerID = r.RacerID;
+                        }
+                        else if (sixth == 0)
+                        {
+                            sixth = r.NumWins;
+                            sixthPlaceRacerID = r.RacerID;
+                        }
+
+            if (sixth == fifth && fifth != 0)               //check for two positions with same # of wins and check the heat for winner
+            {
+                foreach (Heat h in HeatList)      //look for heat with both racers
+                    if ((h.FirstRacerID == fifthPlaceRacerID || h.FirstRacerID == sixthPlaceRacerID) && (h.SecondRacerID == fifthPlaceRacerID || h.SecondRacerID == sixthPlaceRacerID)) //finds a heat
+                        if (h.FirstRacerIsWinner)
+                        {
+                            fifthPlaceRacerID = h.FirstRacerID;
+                            sixthPlaceRacerID = h.SecondRacerID;
+                        }
+                        else
+                        {
+                            fifthPlaceRacerID = h.SecondRacerID;
+                            sixthPlaceRacerID = h.FirstRacerID;
+                        }
+            }
+
+            if (fifth == fourth && fifth != 0)               //check for two positions with same # of wins and check the heat for winner
+            {
+                foreach (Heat h in HeatList)      //look for heat with both racers
+                    if ((h.FirstRacerID == fourthPlaceRacerID || h.FirstRacerID == fifthPlaceRacerID) && (h.SecondRacerID == fourthPlaceRacerID || h.SecondRacerID == fifthPlaceRacerID)) //finds a heat
+                        if (h.FirstRacerIsWinner)
+                        {
+                            fourthPlaceRacerID = h.FirstRacerID;
+                            fifthPlaceRacerID = h.SecondRacerID;
+                        }
+                        else
+                        {
+                            fourthPlaceRacerID = h.SecondRacerID;
+                            fifthPlaceRacerID = h.FirstRacerID;
+                        }
+            }
+
+            if (fourth == third && third != 0)               //check for two positions with same # of wins and check the heat for winner
+            {
+                foreach (Heat h in HeatList)      //look for heat with both racers
+                    if ((h.FirstRacerID == thirdPlaceRacerID || h.FirstRacerID == fourthPlaceRacerID) && (h.SecondRacerID == thirdPlaceRacerID || h.SecondRacerID == fourthPlaceRacerID)) //finds a heat
+                        if (h.FirstRacerIsWinner)
+                        {
+                            thirdPlaceRacerID = h.FirstRacerID;
+                            fourthPlaceRacerID = h.SecondRacerID;
+                        }
+                        else
+                        {
+                            thirdPlaceRacerID = h.SecondRacerID;
+                            fourthPlaceRacerID = h.FirstRacerID;
+                        }
+            }
+
+            if (third == second && third != 0)               //check for two positions with same # of wins and check the heat for winner
+            {
+                foreach (Heat h in HeatList)      //look for heat with both racers
+                    if ((h.FirstRacerID == secondPlaceRacerID || h.FirstRacerID == thirdPlaceRacerID) && (h.SecondRacerID == secondPlaceRacerID || h.SecondRacerID == thirdPlaceRacerID)) //finds a heat
+                        if (h.FirstRacerIsWinner)
+                        {
+                            secondPlaceRacerID = h.FirstRacerID;
+                            thirdPlaceRacerID = h.SecondRacerID;
+                        }
+                        else
+                        {
+                            secondPlaceRacerID = h.SecondRacerID;
+                            thirdPlaceRacerID = h.FirstRacerID;
+                        }
+            }
+
+
+            if (first == second)               //check for two positions with same # of wins and check the heat for winner
+            {
+                foreach (Heat h in HeatList)      //look for heat with both racers
+                    if ((h.FirstRacerID == firstPlaceRacerID || h.FirstRacerID == secondPlaceRacerID) && (h.SecondRacerID == firstPlaceRacerID || h.SecondRacerID == secondPlaceRacerID)) //finds a heat
+                        if (h.FirstRacerIsWinner)
+                        {
+                            firstPlaceRacerID = h.FirstRacerID;
+                            secondPlaceRacerID = h.SecondRacerID;
+                        }
+                        else
+                        {
+                            firstPlaceRacerID = h.SecondRacerID;
+                            secondPlaceRacerID = h.FirstRacerID;
+                        }
+            }
+
+            //load the viewModel
+            SWVM.DivisionName = ThisDivName;
+            SWVM.FirstPlaceID = firstPlaceRacerID;
+            SWVM.SecondPlaceID = secondPlaceRacerID;
+            SWVM.ThirdPlaceID = thirdPlaceRacerID;
+
+            foreach (Racer r in db.Racers)
+            {
+                if (r.RacerID == firstPlaceRacerID)
+                    SWVM.FirstPlaceName = r.FirstName + " " + r.LastName;
+                if (r.RacerID == secondPlaceRacerID)
+                    SWVM.SecondPlaceName = r.FirstName + " " + r.LastName;
+                if (r.RacerID == thirdPlaceRacerID)
+                    SWVM.ThirdPlaceName = r.FirstName + " " + r.LastName;
+            }
+
+            return View(SWVM);
+        }
+
 
         //******************************************************************************************************************************
         protected override void Dispose(bool disposing)

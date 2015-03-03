@@ -602,3 +602,5 @@ L:\College Stuff\C# ASP-net 2\Rob's Derby Cars\RobsDerbyCars-23Feb -v4\RobsDerby
 L:\College Stuff\C# ASP-net 2\Rob's Derby Cars\RobsDerbyCars-23Feb -v4\RobsDerbyCars\obj\Debug\RobsDerbyCars.csproj.GenerateResource.Cache
 L:\College Stuff\C# ASP-net 2\Rob's Derby Cars\RobsDerbyCars-23Feb -v4\RobsDerbyCars\obj\Debug\RobsDerbyCars.dll
 L:\College Stuff\C# ASP-net 2\Rob's Derby Cars\RobsDerbyCars-23Feb -v4\RobsDerbyCars\obj\Debug\RobsDerbyCars.pdb
+L:\MyGits\RobsDerbyCars\RobsDerbyCars\obj\Debug\RobsDerbyCars.Migrations.InitialCreate.resources
+L:\MyGits\RobsDerbyCars\RobsDerbyCars\obj\Debug\RobsDerbyCars.csproj.GenerateResource.Cache

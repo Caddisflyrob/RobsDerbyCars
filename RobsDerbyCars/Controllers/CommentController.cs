@@ -13,14 +13,27 @@ namespace RobsDerbyCars.Controllers
 {
     public class CommentController : Controller
     {
-        private DerbyContext db = new DerbyContext();
+        //private DerbyContext db = new DerbyContext();
+        private ICommentReository commentRepository;
+
+        public CommentController()
+        {
+            this.commentRepository = new CommentRepository(new DerbyContext());
+        }
+
+        public CommentController(ICommentReository commentRep)
+        {
+            this.commentRepository = commentRep;
+        }
+
         //************************************************************************************
         //Index
         //************************************************************************************
         // GET: Comment
         public ActionResult Index()
         {
-            return View(db.Comments.ToList());
+            //return View(db.Comments.ToList());
+            return View(commentRepository.GetComments());
         }
 
 
@@ -34,7 +47,8 @@ namespace RobsDerbyCars.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            //Comment comment = db.Comments.Find(id);
+            Comment comment = commentRepository.GetCommentByID((int)id);
             if (comment == null)
             {
                 return HttpNotFound();
@@ -53,8 +67,6 @@ namespace RobsDerbyCars.Controllers
         }
 
         // POST: Comment/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "CommentID,Name,CommentText,CarIDNum")] Comment comment)
@@ -63,8 +75,11 @@ namespace RobsDerbyCars.Controllers
 
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comment);
-                db.SaveChanges();
+                //db.Comments.Add(comment);
+                //db.SaveChanges();
+                commentRepository.InsertComment(comment);
+                commentRepository.Save();
+
                 return RedirectToAction("Index");
             }
 
@@ -82,7 +97,9 @@ namespace RobsDerbyCars.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            //Comment comment = db.Comments.Find(id);
+            Comment comment = commentRepository.GetCommentByID((int)id);
+
             if (comment == null)
             {
                 return HttpNotFound();
@@ -97,8 +114,11 @@ namespace RobsDerbyCars.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(comment).State = EntityState.Modified;
-                db.SaveChanges();
+                //db.Entry(comment).State = EntityState.Modified;
+                //db.SaveChanges();
+                commentRepository.UpdateComment(comment);
+                commentRepository.Save();
+
                 return RedirectToAction("Index");
             }
             return View(comment);
@@ -115,7 +135,8 @@ namespace RobsDerbyCars.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comment comment = db.Comments.Find(id);
+            //Comment comment = db.Comments.Find(id);
+            Comment comment = commentRepository.GetCommentByID((int)id);
             if (comment == null)
             {
                 return HttpNotFound();
@@ -128,9 +149,12 @@ namespace RobsDerbyCars.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comment comment = db.Comments.Find(id);
-            db.Comments.Remove(comment);
-            db.SaveChanges();
+            //Comment comment = db.Comments.Find(id);
+            //db.Comments.Remove(comment);
+            //db.SaveChanges();
+            Comment comment = commentRepository.GetCommentByID((int)id);
+            commentRepository.DeleteComment((int)id);
+            commentRepository.Save();
             return RedirectToAction("Index");
         }
 
@@ -142,7 +166,8 @@ namespace RobsDerbyCars.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                //db.Dispose();
+                commentRepository.Dispose();
             }
             base.Dispose(disposing);
         }
