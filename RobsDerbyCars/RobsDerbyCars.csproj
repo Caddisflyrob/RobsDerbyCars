@@ -133,7 +133,13 @@
     <Compile Include="DAL\CommentRepository.cs" />
     <Compile Include="DAL\DerbyContext.cs" />
     <Compile Include="DAL\DerbyInitializer.cs" />
+    <Compile Include="DAL\FakeRobsDerbyCarsGenRepo.cs" />
+    <Compile Include="DAL\FakeUnitOfWork.cs" />
     <Compile Include="DAL\ICommentReository.cs" />
+    <Compile Include="DAL\IDerbyCars.cs" />
+    <Compile Include="DAL\IUnutOfWork.cs" />
+    <Compile Include="DAL\RobsDerbyCarsGenRepo.cs" />
+    <Compile Include="DAL\UnitOfWork.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -146,6 +152,7 @@
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Division.cs" />
     <Compile Include="Models\Heat.cs" />
+    <Compile Include="Models\IEntityModel.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\Racer.cs" />
     <Compile Include="ViewModels\AddCarAndComment.cs" />

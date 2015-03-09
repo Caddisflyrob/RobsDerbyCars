@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RobsDerbyCars.Models
 {
-    public class Heat
+    public class Heat //: IEntityModel
     {
         
         public int HeatID { get; set; }

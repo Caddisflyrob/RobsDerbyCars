@@ -6,7 +6,7 @@ using System.Web;
 
 namespace RobsDerbyCars.Models
 {
-    public class Car
+    public class Car //: IEntityModel
     {
         public int CarID { get; set; }
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RobsDerbyCars.Models
 {
-    public class Division
+    public class Division //: IEntityModel
     {
         public int DivisionID { get; set; }
 
