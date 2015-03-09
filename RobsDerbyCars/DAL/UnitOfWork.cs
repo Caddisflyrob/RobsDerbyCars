@@ -11,8 +11,8 @@ namespace RobsDerbyCars.DAL
         private DerbyContext context = new DerbyContext();
         private IDerbyCars<Car> carRepo;
         private IDerbyCars<Comment> commentRepo;
-       
-
+        private int carCount = 0;
+        private int commentCount;
 
         public IDerbyCars<Models.Car> CarRepo
         {
@@ -37,6 +37,27 @@ namespace RobsDerbyCars.DAL
                 return commentRepo;
             }
         }
+
+        public int CarCount
+        {
+           get
+            {
+                foreach (var r in context.Cars)
+                    carCount++;
+                return carCount;
+            }
+        }
+
+        public int CommentCount
+        {
+            get
+            {
+                foreach (var r in context.Comments)
+                    commentCount++;
+                return carCount;
+            }
+        }
+
 
          public void Save()
         {

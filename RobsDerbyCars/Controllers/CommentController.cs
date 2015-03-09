@@ -153,6 +153,11 @@ namespace RobsDerbyCars.Controllers
             //db.Comments.Remove(comment);
             //db.SaveChanges();
             Comment comment = commentRepository.GetCommentByID((int)id);
+            
+                                            //List<Comment> ComList = commentRepository.GetComments().ToList();  //DELETE
+                                            //foreach (var c in ComList)                                         //DELETE
+                                            //commentRepository.DeleteComment((int)c.CommentID);                 //DELETE
+            
             commentRepository.DeleteComment((int)id);
             commentRepository.Save();
             return RedirectToAction("Index");

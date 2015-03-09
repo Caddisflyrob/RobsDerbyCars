@@ -3,7 +3,4 @@
   <parameter name="DerbyContext-Web.config Connection String" description="DerbyContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0; AttachDbFilename=|DataDirectory|\RobsDerbyCars2.mdf; Initial Catalog=RobsDerbyCars2; Integrated Security=SSPI " tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="L:\\MyGits\\RobsDerbyCars\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DerbyContext']/@connectionString" />
   </parameter>
-  <parameter name="DerbyContext_DatabasePublish-Web.config Connection String" description="DerbyContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="DerbyContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="L:\\MyGits\\RobsDerbyCars\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DerbyContext_DatabasePublish']/@connectionString" />
-  </parameter>
 </parameters>

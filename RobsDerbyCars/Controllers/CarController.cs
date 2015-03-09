@@ -187,10 +187,11 @@ namespace RobsDerbyCars.Controllers
             Car thisCar = new Car();   //Unit Of Work
             var carList = uow.CarRepo.Get(); //Unit Of Work
 
-            foreach (Car c in carList)      //Unit Of Work
-                if (c.CarID == id)
+            foreach (Car c in carList)      //Unit Of Work                
+                                                    
+                 if (c.CarID == id)
                     thisCar = c;
-
+                                                //uow.CarRepo.Delete(c);//DELETE 
             uow.CarRepo.Delete(thisCar);
             uow.Save();
             return RedirectToAction("Index");
@@ -200,6 +201,7 @@ namespace RobsDerbyCars.Controllers
             //db.SaveChanges();
             //return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

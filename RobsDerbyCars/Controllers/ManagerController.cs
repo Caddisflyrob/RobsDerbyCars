@@ -11,7 +11,8 @@ namespace RobsDerbyCars.Controllers
 {
     public class ManagerController : Controller
     {
-        private DerbyContext db = new DerbyContext();
+        //private DerbyContext db = new DerbyContext();
+        private UnitOfWork uow = new UnitOfWork();
       
 //Index********************************************************************************************************************
         public ActionResult Index()
@@ -41,13 +42,19 @@ namespace RobsDerbyCars.Controllers
 
             comment.CommentText = CaC.CommentText;
             comment.Name = CaC.Name;
-            comment.CarIdNum = db.Cars.Count() + 1;
+            comment.CarIdNum = uow.CarCount + 1;
+            //comment.CarIdNum = db.Cars.Count() + 1;
+
 
             if (ModelState.IsValid)
             {
-                db.Cars.Add(car);
-                db.Comments.Add(comment);
-                db.SaveChanges();
+                uow.CarRepo.Insert(car);
+                uow.CommentRepo.Insert(comment);
+                uow.Save();
+
+                //db.Cars.Add(car);
+                //db.Comments.Add(comment);
+                //db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
