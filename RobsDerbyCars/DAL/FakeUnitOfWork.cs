@@ -14,7 +14,8 @@ namespace RobsDerbyCars.DAL
 
         private List<Car> cars;
         private List<Comment> comments;
-       
+        private int carCount;
+        private int commentCount;
 
         public FakeUnitOfWork(List<Car> car = null, List<Comment> com = null)
         {
@@ -52,6 +53,32 @@ namespace RobsDerbyCars.DAL
                 return commentRepo;
             }
         }
+
+        public int CarCount
+        {
+            get
+            {
+                foreach (var r in cars)
+                    carCount++;
+                return carCount;
+            }
+        }
+
+        public int CommentCount
+        {
+            get
+            {
+                foreach (var r in comments)
+                    commentCount++;
+                return commentCount;
+            }
+        }
+
+
+
+
+
+
 
         public void Save()
         {
