@@ -202,6 +202,7 @@
     <Content Include="Images\Garage-AxleSmooth.jpg" />
     <Content Include="Images\Garage-BlockCut.jpg" />
     <Content Include="Images\Garage-BlockDrawn.jpg" />
+    <Content Include="Images\Garage-Complete.jpg" />
     <Content Include="Images\Garage-DesignSheet.jpg" />
     <Content Include="Images\Garage-Holes.jpg" />
     <Content Include="Images\Garage-Kit.jpg" />
