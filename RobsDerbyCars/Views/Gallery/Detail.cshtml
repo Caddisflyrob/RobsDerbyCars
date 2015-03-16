@@ -1,48 +1,48 @@
 ﻿@model RobsDerbyCars.Models.Car
+<body style="background-color:rgb(166,230,255)">
+    <div style="text-align:center">
+        <h1 style="text-align:center; color:maroon; font-weight:bold"> @Html.DisplayFor(model => model.CarName) </h1>  @*displays Car Name*@
+        <img src="@Url.Content("~/Images/"+ Model.PictureURL)" style="box-shadow: 10px 10px 5px #888888; border-radius:15px;margin-bottom:15px" alt="Opps!" width="700" height="400">            @*displays picture*@
 
-<div style="text-align:center">
-    <h1 style="text-align:center"> @Html.DisplayFor(model => model.CarName) </h1>  @*displays Car Name*@
-    <img src="@Url.Content("~/Images/"+ Model.PictureURL)" style="box-shadow: 10px 10px 5px #888888;" alt="Opps!" width="900" height="514">            @*displays picture*@
-
-    <h5><b>Owner/Builder: </b>@Html.DisplayFor(model => model.Owner)</h5>                               @*displays Owner*@
-</div>
-
-<h3>@Html.DisplayFor(model => model.Description)</h3>
-<hr />
-
-
-@if(Model.comments.Count()==0)
-{
-  
-    <div>
-        <h4 style="color:green">There are no comments on this car. Would you like to be the first to add one?</h4>
+        <h5><b>Owner/Builder: </b>@Html.DisplayFor(model => model.Owner)</h5>                               @*displays Owner*@
     </div>
-    <div class="col-md-2">
-        <p class="btn btn-default"> @Html.ActionLink("Add a comment", "AddComment", new { id = Model.CarID })</p>    @*Button to Gallery*@
-    </div>
-    <div class="col-md-1">
-        <p class="btn btn-default"> @Html.ActionLink("Return to Gallery", "Index", "Gallery")</p>    @*Button to Gallery*@
-    </div>
-    <br/>
 
-}
-@if(Model.comments.Count()>0)
-{
-    <h4>Comments:</h4>
+    <h3 style="text-align:center">@Html.DisplayFor(model => model.Description)</h3>
+    <hr />
+</body>
 
-    foreach (var comment in Model.comments)
+    @if (Model.comments.Count() == 0)
     {
-        <dl class="dl-horizontal">
-            <dt>@Html.DisplayFor(model => comment.Name) : </dt>
-            <dd>@Html.DisplayFor(model => comment.CommentText)</dd>
-        </dl>
+
+        <div>
+            <h4 style="color:green">There are no comments on this car. Would you like to be the first to add one?</h4>
+        </div>
+        <div class="col-md-2">
+            <p class="btn btn-default"> @Html.ActionLink("Add a comment", "AddComment", new { id = Model.CarID })</p>    @*Button to Gallery*@
+        </div>
+        <div class="col-md-1">
+            <p class="btn btn-default"> @Html.ActionLink("Return to Gallery", "Index", "Gallery")</p>    @*Button to Gallery*@
+        </div>
+        <br />
+
     }
-    <div class="col-md-2">
-        <p class="btn btn-default"> @Html.ActionLink("Return to Gallery", "Index", "Gallery")</p>    @*Button to Gallery*@
-    </div>
-    <div class="col-md-2">
-        <p class="btn btn-default"> @Html.ActionLink("Add a comment", "AddComment", new { id = Model.CarID })</p>    @*Button to Gallery*@
-    </div>
-    <br />
-}
+    @if (Model.comments.Count() > 0)
+    {
+        <h4>Comments:</h4>
+
+        foreach (var comment in Model.comments)
+        {
+            <dl class="dl-horizontal">
+                <dt>@Html.DisplayFor(model => comment.Name) : </dt>
+                <dd>@Html.DisplayFor(model => comment.CommentText)</dd>
+            </dl>
+        }
+        <div class="col-md-2">
+            <p class="btn btn-default"> @Html.ActionLink("Return to Gallery", "Index", "Gallery")</p>    @*Button to Gallery*@
+        </div>
+        <div class="col-md-2">
+            <p class="btn btn-default"> @Html.ActionLink("Add a comment", "AddComment", new { id = Model.CarID })</p>    @*Button to Gallery*@
+        </div>
+        <br />
+    }
 

@@ -251,6 +251,8 @@
     <Content Include="Images\Purple.jpg" />
     <Content Include="Images\PurpleThumb.jpg" />
     <Content Include="Images\RaceFlags.png" />
+    <Content Include="Images\RaceFlagsCamera.png" />
+    <Content Include="Images\RaceFlagsCameraFlash.png" />
     <Content Include="Images\RaceFlagsCup.png" />
     <Content Include="Images\Rainbow.jpg" />
     <Content Include="Images\RainbowThumb.jpg" />
