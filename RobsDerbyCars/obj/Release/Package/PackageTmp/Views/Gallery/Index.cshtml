@@ -3,27 +3,35 @@
 @{
     ViewBag.Title = "Index";
 }
-<div class="row">
-    <div class="col-md-8">
-        <h2>Rob's Car Gallery</h2>
-        <h6> Click on an image to see the details.</h6>
+<body style="background-color:rgb(0, 100, 150)">
+    <div class="jumbotron" style="background-color:rgb(48, 230, 200)">
+        <h1 style=" color:maroon; font-family:magneto; text-align:center">
+            Rob's Car Gallery
+            <img src="~/images/RaceFlagsCameraFlash.png " width=" 250" height="178" />
+        </h1>
     </div>
-</div>
-@{foreach (var item in Model)
-{
-    <div class="gallery" style="float:left; margin:10px; text-align:center">
-        @Html.DisplayFor(modelItem => item.CarName)
-        <br />
-        <a href="@Url.Action("Detail", "Gallery",new { id = item.CarID })">
-            <img src="@Url.Content("~/Images/"+ item.ThumbnailURL)" alt="Opps!">
-        </a> 
 
-        <br /><br/>
-        @*Html.ActionLink("CarDetails", "Detail", new { id = item.CarID })*@ 
+    <div class="row">
+       <h3 style="text-align:center; color:white"> Click on an image to see the details.</h3>
     </div>
-}
-<div style="clear:left"></div>
-}
 
+    @{foreach (var item in Model)
+    {
+        <div class="gallery" style="float:left; margin:10px; text-align:center;color:lightblue">
+            <div style="padding:0px; margin:0px">
+                @Html.DisplayFor(modelItem => item.CarName)
+            </div>
+            <br />
+            <a href="@Url.Action("Detail", "Gallery",new { id = item.CarID })">
+                <img src="@Url.Content("~/Images/"+ item.ThumbnailURL)" alt="Opps!" style="border-radius: 15px">
+            </a>
+
+            <br /><br />
+            @*Html.ActionLink("CarDetails", "Detail", new { id = item.CarID })*@
+        </div>
+    }
+    <div style="clear:left"></div>
+    }
+</body>
 
 

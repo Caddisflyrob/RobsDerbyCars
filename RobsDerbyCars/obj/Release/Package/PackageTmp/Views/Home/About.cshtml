@@ -1,40 +1,45 @@
 ﻿@{
     ViewBag.Title = "About Rob's Derby Cars";
 }
-<h2>About  <b>Rob's Derby Cars</b></h2>
-<div>
-    <div class="col-md-8" style="padding:20px">
-        <p style="text-indent: 50px; font-size:18px">
+<body style="background-color:rgb(48, 230, 200)">
+
+    <h1 style="font-family:Magneto; color:maroon; text-align:center;margin-bottom:25px">About  <b>Rob's Derby Cars</b></h1>
+    <div>
+        <div class="col-md-8" style="padding:20px; border-radius:15px;background-color:white"  >
+            <p style="text-indent: 50px; font-size:16px">
+
+                I have been involved with making pinewood derby cars for most of my life.
+                I built my first car, with the help of my dad, in 1974 as a six year old
+                Cub Scout in Fort Devens, MA. My first car, “The Pinewood Derby Monster”,
+                ended up winning second place in the entire state of Massachusetts for the car show
+                competition. I continued to make cars each year until 1980 when I moved to Montana
+                and left scouting. In 1995, while stationed at Offutt Air Force Base, I was
+                called into the ministry to become a Royal Ranger commander with Outpost
+                28 at Bellevue Christian Center in Bellevue, Nebraska. As with the Boy Scouts,
+                the annual Pinewood Derby is also a popular activity with the Royal Rangers.
+                I was excited to get back into designing and building creative cars, this time as
+                an adult. The first car I built as a Royal Ranger Commander, “Gone Fishin’”, won
+                first place for show in the Adult division at the Nebraska district Winter Powwow.
+                I have been making unique cars almost every year since I became a Royal Ranger
+                Leader.  I am currently the Senior Royal Ranger Commander at Outpost 148 at Berean
+                Assembly of God in Springfield, Oregon. Each year, I not only make my own car,
+                but assist, my two children, my wife, and all the boys in my outpost, in making their
+                cars. As you can see by the detail put into each of my creations, I have a great
+                deal of fun with Pinewood Derby. I hope this web site will spark in you a similar
+                passion and enthusiasm for pinewood derby as I have.
+            </p>
+        </div>
+        <div class="col-md-4">
             
-            I have been involved with making pinewood derby cars for most of my life.
-            I built my first car, with the help of my dad, in 1974 as a six year old
-            Cub Scout in Fort Devens, MA. My first car, “The Pinewood Derby Monster”,
-            ended up winning second place in the entire state of Massachusetts for the car show
-            competition. I continued to make cars each year until 1980 when I moved to Montana
-            and left scouting. In 1995, while stationed at Offutt Air Force Base, I was
-            called into the ministry to become a Royal Ranger commander with Outpost
-            28 at Bellevue Christian Center in Bellevue, Nebraska. As with the Boy Scouts,
-            the annual Pinewood Derby is also a popular activity with the Royal Rangers.
-            I was excited to get back into designing and building creative cars, this time as
-            an adult. The first car I built as a Royal Ranger Commander, “Gone Fishin’”, won
-            first place for show in the Adult division at the Nebraska district Winter Powwow.
-            I have been making unique cars almost every year since I became a Royal Ranger
-            Leader.  I am currently the Senior Royal Ranger Commander at Outpost 148 at Berean
-            Assembly of God in Springfield, Oregon. Each year, I not only make my own car,
-            but assist, my two children, my wife, and all the boys in my outpost, in making their
-            cars. As you can see by the detail put into each of my creations, I have a great
-            deal of fun with Pinewood Derby. I hope this web site will spark in you a similar
-            passion and enthusiasm for pinewood derby as I have.
-        </p>
-    </div>
-    <div class="col-md-4">
-        <img src="~/Images/Rob.jpg" alt="Rob Callahan" width="400" />
-        <div style="text-align:center;font-size:16px">
-            Senior Commander Rob Callahan
-            <br /><br /><br /><br /><br/>
+                <img src="~/Images/Rob.jpg" alt="Rob Callahan" width="300" style="border-radius:15px; margin:15px; text-align:center" />
+                <div style="text-align:center;font-size:16px">
+                    Senior Commander Rob Callahan
+                    <br /><br /><br /><br />
+                </div>
+            
+        </div>
+        <div>
+            <h4 style="text-align:center">@ViewBag.Message</h4>
         </div>
     </div>
-    <div>
-        <h3 style="text-align:center">@ViewBag.Message</h3> 
-    </div>
-</div>
+</body>

@@ -621,7 +621,7 @@ namespace RobsDerbyCars.Controllers
         //*****************************************************************************************************************************
         public ActionResult ShowWinners(string div) //takes in a division name as string
         {
-            div = "Sleepy Bunnies"; //for testing
+            //div = "Sleepy Bunnies"; //for testing
 
             ShowWinnersVM SWVM = new ShowWinnersVM();
             int winnerId;

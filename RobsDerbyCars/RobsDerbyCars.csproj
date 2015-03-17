@@ -132,6 +132,7 @@
     <Compile Include="Controllers\RacesController.cs" />
     <Compile Include="DAL\CommentRepository.cs" />
     <Compile Include="DAL\DerbyContext.cs" />
+    <Compile Include="DAL\DerbyInitializer.cs" />
     <Compile Include="DAL\FakeRobsDerbyCarsGenRepo.cs" />
     <Compile Include="DAL\FakeUnitOfWork.cs" />
     <Compile Include="DAL\ICommentReository.cs" />
