@@ -157,20 +157,6 @@ namespace RobsDerbyCars.Controllers
             //return View(formHeatList);
         }
 
-
-
-
-            //ShowRaceVM SRVM =new ShowRaceVM();
-            //SRVM.DivisionName = ThisDivName;
-            //SRVM.HeatList = HeatList;
-            //return View(SRVM);
-        
-
-        /* BookInfoContext db = new BookInfoContext();
-            var books = (from b in db.Books                //LINQ 
-                         select b);
-            return View(books); 
-*/  
         
         //************************************************************************************************************************
         // AddDivision
@@ -456,8 +442,12 @@ namespace RobsDerbyCars.Controllers
         {
             List<string> raceList = new List<string>();
             AddHeatsToRaceVM RD = new AddHeatsToRaceVM();
-            foreach (var r in db.Races)                             //adds only races that have been created to the list of divisions
-                raceList.Add(r.DivisionName);
+            
+            foreach (var d in db.Divisions)                             //adds only races that have been created to the list of divisions
+                raceList.Add(d.DivisionName);
+            
+            //foreach (var r in db.Races)                             //adds only races that have been created to the list of divisions
+            //    raceList.Add(r.DivisionName);
             RD.DivisionList = raceList;                             // adds this list of races to the division list
                         
             return View(RD);
@@ -631,7 +621,7 @@ namespace RobsDerbyCars.Controllers
         //*****************************************************************************************************************************
         public ActionResult ShowWinners(string div) //takes in a division name as string
         {
-            div = "Sleepy Bunnies"; //for testing
+            //div = "Expedition Rangers"; //for testing
 
             ShowWinnersVM SWVM = new ShowWinnersVM();
             int winnerId;

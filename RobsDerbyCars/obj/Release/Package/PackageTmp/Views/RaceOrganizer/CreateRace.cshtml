@@ -3,42 +3,46 @@
     ViewBag.Title = "Create Race";
 }
 
-<h2>Create Race</h2>
+<body style="background-color:rgb(0,100,150)">
+    <h1 style="color:maroon;font-family:Magneto; background-color:rgb(48, 230, 200); border-radius:10px; padding:10px">Create a Race</h1>
+    <div style="background-color:white;border-radius:15px; padding:15px">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <h4>Choose a division to create a race for.</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.Heats)
+                @Html.HiddenFor(model => model.RaceID)
+                @Html.HiddenFor(model => model.DivisionList)
 
-    <div class="form-horizontal">
-        <h4>Choose a division to create a race for.</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.Heats)
-        @Html.HiddenFor(model => model.RaceID) 
-        @Html.HiddenFor(model => model.DivisionList)
-        
-        <div class="form-group">
-           <div class="col-md-10">
-                <select name="DivisionName" style="font-size: 20px">
-                    @foreach (var div in Model.DivisionList)
-                     {
-                        <option value="@div"> @div </option>
-                     }
-                </select>
-                @Html.ValidationMessageFor(model => model.DivisionName, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <select name="DivisionName" style="font-size: 20px">
+                            @foreach (var div in Model.DivisionList)
+                            {
+                                <option value="@div"> @div </option>
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.DivisionName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <input type="submit" value="Create a Race" class="btn btn-default" />
+                        <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+
+                    </div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <div class="col-md-10">
-                <input type="submit" value="Create a Race" class="btn btn-default" />
-                <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+        }
 
-            </div>
+        <div>
+            @Html.ActionLink("Back to List", "Index")
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+</body>

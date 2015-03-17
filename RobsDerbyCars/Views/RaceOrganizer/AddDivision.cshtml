@@ -2,31 +2,37 @@
 @{
     ViewBag.Title = "AddDivision";
 }
+<body style="background-color:rgb(0,100,150)">
+    <h1 style="color:maroon;font-family:Magneto; background-color:rgb(48, 230, 200); border-radius:10px; padding:10px">Add a Division</h1>
 
-<h2>AddDivision</h2>
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+        <div class="form-horizontal">
 
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.DivisionName, htmlAttributes: new { @class = "control-label col-md-1" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.DivisionName, new { htmlAttributes = new { @class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.DivisionName, "", new { @class = "text-danger" })
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div style="background-color:white;border-radius:15px; padding:15px">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DivisionName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DivisionName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DivisionName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                        <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
 
-    
-    
-}
+
+
+    }
+</body>

@@ -1,206 +1,212 @@
 ﻿@model RobsDerbyCars.ViewModels.RaceOrganizerIndexVM
 @{
-    
+
     ViewBag.Title = "Race Organizer";
 }
+<body style="background-color:rgb(0,100,150)">
+    <h1 style="color:maroon;font-family:Magneto; background-color:rgb(48, 230, 200); border-radius:10px; padding:10px">Pinewood Derby Race Organizer</h1>
 
-<h2>Pinewood Derby Race Organizer</h2>
     <br />
-<table >
-    <tr >
-        <th>
-            <p style="text-align:center"> Step 1 </p>
-        </th>
-        <th>
-            <p style="text-align:center"> Step 2 </p>
-        </th>
-        <th>
-            <p style="text-align:center"> Step 3 </p>
-        </th>
-        <th>
-            <p style="text-align:center"> Step 4 </p>
-        </th>
-        <th>
-            <p style="text-align:center"> Step 5 </p>
-        </th>
-    </tr>
+    <div style="background-color:white;border-radius:10px;padding:10px; text-align:center">
+        <table>
+            <tr>
+                <th>
+                    <p style="text-align:center"> Step 1 </p>
+                </th>
+                <th>
+                    <p style="text-align:center"> Step 2 </p>
+                </th>
+                <th>
+                    <p style="text-align:center"> Step 3 </p>
+                </th>
+                <th>
+                    <p style="text-align:center"> Step 4 </p>
+                </th>
+                <th>
+                    <p style="text-align:center"> Step 5 </p>
+                </th>
+            </tr>
 
-    <tr>
-        <td>
-            <p class="btn btn-default"> @Html.ActionLink("Add a Division", "AddDivision", "RaceOrganizer")</p>
-        </td>
-        <td>
-            <p class="btn btn-default"> @Html.ActionLink("Add New Racer", "AddRacers", "RaceOrganizer")</p>
-        </td>
-        <td>
-            <p class="btn btn-default"> @Html.ActionLink("Create a Race", "CreateRace", "RaceOrganizer")</p>
-        </td>
-        <td>
-            <p class="btn btn-default"> @Html.ActionLink("Fill a Race with Heats", "AddHeatsToRace", "RaceOrganizer")</p>
-        </td>
-        <td>
-            <p class="btn btn-default"> @Html.ActionLink("Show a Race", "SelectARace", "RaceOrganizer")</p>
-        </td>
-    </tr>
-
-</table>
- 
-@*For Testing*@
-@*<p class="btn btn-default"> @Html.ActionLink("Remove All Racers", "RemoveAllRacers", "RaceOrganizer")</p>*@
-@*<p class="btn btn-default"> @Html.ActionLink("Remove All Divisions", "RemoveAllDivisions", "RaceOrganizer")</p>*@
-
-
-
-<h3> Current Divisions:</h3>
-@if (Model.divisionList.Count() == 0)
-{
-    <h4 style="color:Blue; font-style:italic"> There currently are no divisions to display</h4>
-}
-else
-{
-    <table class="table" style="width:40%">
-
-        @foreach (var item in Model.divisionList)
-        {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.DivisionName)
+                    <p class="btn btn-default"> @Html.ActionLink("Add a Division", "AddDivision", "RaceOrganizer")</p>
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "EditDivision", new { id = item.DivisionID }) |
-                    @Html.ActionLink("Remove", "RemoveDivision", new { id = item.DivisionID })
+                    <p class="btn btn-default"> @Html.ActionLink("Add New Racer", "AddRacers", "RaceOrganizer")</p>
+                </td>
+                <td>
+                    <p class="btn btn-default"> @Html.ActionLink("Create a Race", "CreateRace", "RaceOrganizer")</p>
+                </td>
+                <td>
+                    <p class="btn btn-default"> @Html.ActionLink("Fill a Race with Heats", "AddHeatsToRace", "RaceOrganizer")</p>
+                </td>
+                <td>
+                    <p class="btn btn-default"> @Html.ActionLink("Show a Race", "SelectARace", "RaceOrganizer")</p>
                 </td>
             </tr>
-        }
+        </table>
+    </div>
 
-    </table>
-}
+    @*For Testing*@
+    @*<p class="btn btn-default"> @Html.ActionLink("Remove All Racers", "RemoveAllRacers", "RaceOrganizer")</p>*@
+    @*<p class="btn btn-default"> @Html.ActionLink("Remove All Divisions", "RemoveAllDivisions", "RaceOrganizer")</p>*@
 
 
-<h3> Current Racers: </h3>
-@if (Model.racerList.Count() == 0)
-{
-    <h4 style="color:Blue; font-style:italic"> There currently are no racers to display</h4>
-}
-else
-{
-    <table class="table" style="width:70%">
-        <tr>
-            <th>
-                FirstName
-            </th>
-            <th>
-                LastName
-            </th>
-            <th>
-                Division
-            </th>
-
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model.racerList)
+    <div style="background-color:white;border-radius:10px;padding:10px;margin:15px ">
+        <h3> Current Divisions:</h3>
+        @if (Model.divisionList.Count() == 0)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Division)
-                </td>
+            <h4 style="color:Blue; font-style:italic"> There currently are no divisions to display</h4>
+        }
+        else
+        {
+            <table class="table" style="width:40%">
 
-                <td>
-                    @Html.ActionLink("Edit", "EditRacer", new { id = item.RacerID }) |
-                    @Html.ActionLink("Remove", "RemoveRacer", new { id = item.RacerID })
-                </td>
-            </tr>
+                @foreach (var item in Model.divisionList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DivisionName)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditDivision", new { id = item.DivisionID }) |
+                            @Html.ActionLink("Remove", "RemoveDivision", new { id = item.DivisionID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        }
+    </div>
+
+    <div style="background-color:white;border-radius:10px;padding:10px;margin:15px ">
+        <h3> Current Racers: </h3>
+        @if (Model.racerList.Count() == 0)
+        {
+            <h4 style="color:Blue; font-style:italic"> There currently are no racers to display</h4>
+        }
+        else
+        {
+            <table class="table" style="width:70%">
+                <tr>
+                    <th>
+                        FirstName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                    <th>
+                        Division
+                    </th>
+
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model.racerList)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Division)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "EditRacer", new { id = item.RacerID }) |
+                            @Html.ActionLink("Remove", "RemoveRacer", new { id = item.RacerID })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+        }
+    </div>
+</body>
+    @*
+
+            @model IEnumerable<RobsDerbyCars.Models.Racer>
+        @{
+
+            ViewBag.Title = "Race Organizer";
         }
 
-    </table>
-}
-@*
+        <h2>Pinewood Derby Race Organizer</h2>
+            <br />
 
-        @model IEnumerable<RobsDerbyCars.Models.Racer>
-    @{
+        <p class="btn btn-default"> @Html.ActionLink("Add New Racer", "AddRacers", "RaceOrganizer")</p>
 
-        ViewBag.Title = "Race Organizer";
-    }
+        <p class="btn btn-default"> @Html.ActionLink("Add a Division", "AddDivision", "RaceOrganizer")</p>
 
-    <h2>Pinewood Derby Race Organizer</h2>
+        <p class="btn btn-default"> @Html.ActionLink("Show Heats", "ShowHeats", "RaceOrganizer")</p>
+
+        <p class="btn btn-default"> @Html.ActionLink("Remove All Racers", "RemoveAllRacers", "RaceOrganizer")</p>
+
+        <p class="btn btn-default"> @Html.ActionLink("Remove All Divisions", "RemoveAllDivisions", "RaceOrganizer")</p>
+
+        <h2> Current Divisions:</h2>
         <br />
 
-    <p class="btn btn-default"> @Html.ActionLink("Add New Racer", "AddRacers", "RaceOrganizer")</p>
-
-    <p class="btn btn-default"> @Html.ActionLink("Add a Division", "AddDivision", "RaceOrganizer")</p>
-
-    <p class="btn btn-default"> @Html.ActionLink("Show Heats", "ShowHeats", "RaceOrganizer")</p>
-
-    <p class="btn btn-default"> @Html.ActionLink("Remove All Racers", "RemoveAllRacers", "RaceOrganizer")</p>
-
-    <p class="btn btn-default"> @Html.ActionLink("Remove All Divisions", "RemoveAllDivisions", "RaceOrganizer")</p>
-
-    <h2> Current Divisions:</h2>
-    <br />
-
-    @if (((List<string>)ViewBag.DivList).Count() == 0)
-    {
-        <h2> There currently are no Divisions to display</h2>
-    }
-    else
-    {
-        foreach(var d in ViewBag.DivList)
+        @if (((List<string>)ViewBag.DivList).Count() == 0)
         {
-            <h4>@d</h4>
+            <h2> There currently are no Divisions to display</h2>
         }
-    }
-
-    <h2> Current Racers: </h2>
-    <br />
-    @if(Model.Count()==0)
-    {
-        <h2> There currently are no Racers to display</h2>
-    }
-    else
-    {
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FirstName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Division)
-            </th>
-
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
+        else
         {
+            foreach(var d in ViewBag.DivList)
+            {
+                <h4>@d</h4>
+            }
+        }
+
+        <h2> Current Racers: </h2>
+        <br />
+        @if(Model.Count()==0)
+        {
+            <h2> There currently are no Racers to display</h2>
+        }
+        else
+        {
+        <table class="table">
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Division)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Division)
+                </th>
 
-                <td>
-                    @Html.ActionLink("Edit", "EditRacer", new { id = item.RacerID }) |
-                    @Html.ActionLink("Remove", "RemoveRacer", new { id = item.RacerID })
-                </td>
+                <th></th>
             </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Division)
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "EditRacer", new { id = item.RacerID }) |
+                        @Html.ActionLink("Remove", "RemoveRacer", new { id = item.RacerID })
+                    </td>
+                </tr>
+            }
+
+        </table>
         }
 
-    </table>
-    }
-
-*@
+    *@

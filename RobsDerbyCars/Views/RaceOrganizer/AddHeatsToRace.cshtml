@@ -3,25 +3,26 @@
     ViewBag.Title = "Add Heats to a Race";
 }
 
-<h2> Add Heats to a Race </h2>
+<body style="background-color:rgb(0,100,150)">
+    <h1 style="color:maroon;font-family:Magneto; background-color:rgb(48, 230, 200); border-radius:10px; padding:10px">Create a Race</h1>
 
-<hr />
-
-@if (Model.DivisionList.Count() == 0)
-{
-    <h3>There are no races to add heats to.</h3>
-    <h5> Create a race first</h5>
-    <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
-    <p class="btn btn-default"> @Html.ActionLink("Create a Race", "CreateRace", "RaceOrganizer")</p>
-}
-else
-{
-    <h4><b style="color:orangered">WARNING!</b> Any heats previously added to the selected race will be deleted from the race.</h4>
     <hr />
-    using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
 
+    @if (Model.DivisionList.Count() == 0)
+    {
+        <h3>There are no races to add heats to.</h3>
+        <h5> Create a race first</h5>
+        <p class="btn btn-default"> @Html.ActionLink("Cancel", "Index", "RaceOrganizer")</p>
+        <p class="btn btn-default"> @Html.ActionLink("Create a Race", "CreateRace", "RaceOrganizer")</p>
+    }
+    else
+    {
+        <h4 style="color:white"><b style="color:goldenrod">Caution!</b> Any heats that were previously added to this selected race will be deleted.</h4>
+        <hr />
+        using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+    <div style="background-color:white;border-radius:15px; padding:15px">
         <div class="form-horizontal">
 
             <h4>Choose the race you want to add Heats to.</h4>
@@ -34,9 +35,9 @@ else
                 <div class="col-md-10">
                     <select name="DivisionName" style="font-size: 20px">
                         @foreach (var div in Model.DivisionList)
-                        {
+                            {
                             <option value="@div"> @div </option>
-                        }
+                            }
                     </select>
                     @Html.ValidationMessageFor(model => model.DivisionName, "", new { @class = "text-danger" })
                 </div>
@@ -49,9 +50,11 @@ else
                 </div>
             </div>
         </div>
-    }
-
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
-}
+        </div>
+        }
+        <br />
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+        }
+</body>
