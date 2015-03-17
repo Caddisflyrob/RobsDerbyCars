@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="RobsDerbyCars" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^L:\\MyGits\\RobsDerbyCars\ 16\ Mar\ v2\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^L:\\MyGits\\RobsDerbyCars\ 16\ Mar\ v2\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^L:\\MyGits\\RobsDerbyCars\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^L:\\MyGits\\RobsDerbyCars\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
   <parameter name="DerbyContext-Web.config Connection String" description="" value="Data Source=tcp:gpzkc2efxd.database.windows.net,1433;Initial Catalog=RobsDerbyCars73;User Id=Caddisflyrob@gpzkc2efxd;Password=Rfc@0373" tags="">
-    <parameterEntry kind="XmlFile" scope="L:\\MyGits\\RobsDerbyCars\ 16\ Mar\ v2\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DerbyContext']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="L:\\MyGits\\RobsDerbyCars\\RobsDerbyCars\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DerbyContext']/@connectionString" />
   </parameter>
 </parameters>
